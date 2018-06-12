@@ -1,0 +1,211 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+<body class="signup-page sidebar-collapse">
+    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+                    E-Louer </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">apps</i> Components
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="./index.html" class="dropdown-item">
+                                <i class="material-icons">layers</i> All Components
+                            </a>
+                            <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
+                                <i class="material-icons">content_paste</i> Documentation
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+                            <i class="material-icons">home</i>Voir les logements
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"
+                            data-original-title="Like us on Facebook">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+
+                    <li class="dropdown nav-item">
+                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">account_circle</i>
+                            <b class="caret"></b>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <h6 class="dropdown-header">S'enregistrer en tant que</h6>
+                            <a href="etudiant_inscription.html" class="dropdown-item">Etudiant</a>
+                            <a href="mpanera_inscription.html" class="dropdown-item">Mpanera</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item">Se Connecter</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<div class="page-header header-filter" filter-color="purple" style="background-image: url('./assets/img/bg_ankatso_bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div class="card card-signup">
+                        <h2 class="card-title text-center">S'enregistrer en tant qu' étudiant</h2>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-12 mr-auto">
+                                    <div class="social text-center">
+                                        <button class="btn btn-just-icon btn-round btn-twitter">
+                                            <i class="fa fa-google"></i>
+                                        </button>
+                                        <button class="btn btn-just-icon btn-round btn-facebook">
+                                            <i class="fa fa-facebook"> </i>
+                                        </button>
+                                        <h4> ou </h4>
+                                    </div>
+                                    <form class="form" method="" action="">
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">face</i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="First Name...">
+                                            </div>
+                                        </div>
+
+                                            
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">mail</i>
+                                                    </span>
+                                                </div>
+                                                 <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "form-control", placeholder: "Email..." %>
+
+                                            </div>
+                                        </div>
+
+                                     
+
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                    </span>
+                                                </div>
+                                                <%= f.password_field :password, autocomplete: "off", placeholder: "  6 characters minimum", class: "form-control" %>
+                                               <% if @minimum_password_length %>
+                                                <% end %>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                    </span>
+                                                </div>
+                                                 <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "conirmation mot de pass"  %>
+                                            </div>
+                                        </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">contacts</i>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">choisissez fichier de votre cin...</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" value="" checked>
+                                                <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                </span>
+                                                J'accepte les 
+                                                <a href="#something">terms et conditions</a>.
+                                            </label>
+                                        </div>
+
+                                        <div class="text-center">
+                                           <%= f.submit "S'enregistrer", class: "btn btn-primary btn-round" %>
+                                        </div>
+
+                                    </form>
+                                <div style="margin-left: 48%;" > <%= render "devise/shared/links" %> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <nav class="float-left">
+                    <ul>
+                        <li>
+                            <a href="https://www.creative-tim.com">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://blog.creative-tim.com">
+                                Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, made with
+                    <i class="material-icons">favorite</i> by
+                    <a href="https://www.creative-tim.com" target="_blank">E-Louer</a> Team.
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<% end %>
