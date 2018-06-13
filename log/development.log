@@ -39083,3 +39083,115 @@ Processing by PageController#logement as HTML
 Completed 200 OK in 123ms (Views: 120.1ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:13:14 +0300
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/deejaytix/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:369
+  Rendered page/logement.html.erb within layouts/application (69.1ms)
+Completed 200 OK in 1404ms (Views: 1332.6ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:14:19 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:387
+  Rendered page/logement.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 171ms (Views: 167.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:26:18 +0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/deejaytix/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:555
+  Rendered page/logement.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 957ms (Views: 932.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:27:14 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:555
+  Rendered page/logement.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 153ms (Views: 149.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:27:35 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:555
+  Rendered page/logement.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 142ms (Views: 139.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:27:56 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:555
+  Rendered page/logement.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 164ms (Views: 160.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:28:42 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:723
+  Rendered page/logement.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 163ms (Views: 150.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:29:27 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:724
+  Rendered page/logement.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 146ms (Views: 143.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:29:59 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:725
+  Rendered page/logement.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 148ms (Views: 145.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:30:32 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:725
+  Rendered page/logement.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 129ms (Views: 126.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:31:13 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:725
+  Rendered page/logement.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 143ms (Views: 140.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/page/logement" for 127.0.0.1 at 2018-06-13 17:31:24 +0300
+Processing by PageController#logement as HTML
+  Rendering page/logement.html.erb within layouts/application
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tranos"[0m
+  ↳ app/views/page/logement.html.erb:725
+  Rendered page/logement.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 156ms (Views: 148.0ms | ActiveRecord: 6.3ms)
+
+
