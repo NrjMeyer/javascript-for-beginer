@@ -3,66 +3,87 @@
 
 
 <body class="signup-page sidebar-collapse">
-    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-        <div class="container">
-            <div class="navbar-translate">
-                <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
-                    E-Louer </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav class="navbar fixed-top navbar-expand-lg bg-primary" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+        E-Louer </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <% if user_signed_in?%>
+        <span>Etudiant:</span>
+        <span> <%= current_user.fullname %>   </span>
+        <% elsif mpanera_signed_in? %>
+        <span>Mpanera:</span>
+        <span><%= current_mpanera.fullname %>   </span>
+        <% end %>
+
+
+      </div>
+      
+
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i> Components
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="index.html" class="dropdown-item">
+                <i class="material-icons">layers</i> All Components
+              </a>
+              <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Documentation
+              </a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">apps</i> Components
-                        </a>
-                        <div class="dropdown-menu dropdown-with-icons">
-                            <a href="./index.html" class="dropdown-item">
-                                <i class="material-icons">layers</i> All Components
-                            </a>
-                            <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
-                                <i class="material-icons">content_paste</i> Documentation
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                            <i class="material-icons">home</i>Voir les logements
-                        </a>
-                    </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logement.html" onclick="scrollToDownload()">
+              <i class="material-icons">home</i>Voir les logements
+            </a>
+          </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"
-                            data-original-title="Like us on Facebook">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                    </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"
+            data-original-title="Like us on Facebook">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
 
-                    <li class="dropdown nav-item">
-                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">account_circle</i>
-                            <b class="caret"></b>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <h6 class="dropdown-header">S'enregistrer en tant que</h6>
-                            <a href="etudiant_inscription.html" class="dropdown-item">Etudiant</a>
-                            <a href="mpanera_inscription.html" class="dropdown-item">Mpanera</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="login.html" class="dropdown-item">Se Connecter</a>
-                        </div>
-                    </li>
+        <li class="dropdown nav-item">
+          <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <i class="material-icons">account_circle</i>
+            <b class="caret"></b>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <% if user_signed_in? %>
+            <a ><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></a>
+            <% elsif mpanera_signed_in? %>
+            <a ><%= link_to "Se déconnecter", destroy_mpanera_session_path, class: "dropdown-item", method: :delete %></a>
+            <% else %>
+            <h6 class="dropdown-header">S'enregistrer en tant que</h6>
+            <a ><%= link_to "Etudiant", new_user_registration_path, class: "dropdown-item" %></a>
+            <a ><%= link_to "Mpanera", new_mpanera_registration_path, class: "dropdown-item" %></a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Se connecter en tant que:</h6>
+            <a ><%= link_to "Etudiant", new_user_session_path, class: "dropdown-item" %></a>
+            <a ><%= link_to "Mpanera", new_mpanera_session_path, class: "dropdown-item" %></a>
+            <% end %>
+          </div>
+        </li>
 
-                </ul>
-            </div>
-        </div>
-    </nav>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
-<div class="page-header header-filter" filter-color="purple" style="background-image: url('./assets/img/bg_ankatso_bg.jpg')">
+<div class="page-header header-filter" filter-color="purple" style="background-image: url('/assets/bg_ankatso_bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 ml-auto mr-auto">
