@@ -5,4 +5,5 @@ class Mpanera < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable
   has_many :tranos
   has_one :cin
+  accepts_nested_attributes_for :cin
 end

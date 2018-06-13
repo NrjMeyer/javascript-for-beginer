@@ -11,7 +11,20 @@
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <% if user_signed_in?%>
+        <span>Etudiant:</span>
+        <span> <%= current_user.fullname %>   </span>
+        <% elsif mpanera_signed_in? %>
+        <span>Mpanera:</span>
+        <span><%= current_mpanera.fullname %>   </span>
+        <% end %>
+
+
       </div>
+      
+
+
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="dropdown nav-item">
@@ -19,7 +32,7 @@
               <i class="material-icons">apps</i> Components
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="../index.html" class="dropdown-item">
+              <a href="index.html" class="dropdown-item">
                 <i class="material-icons">layers</i> All Components
               </a>
               <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
@@ -28,7 +41,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/page/logement" onclick="scrollToDownload()">
+            <a class="nav-link" href="logement.html" onclick="scrollToDownload()">
               <i class="material-icons">home</i>Voir les logements
             </a>
           </li>
@@ -46,22 +59,18 @@
             <b class="caret"></b>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-             
             <% if user_signed_in? %>
-             <a ><%= link_to "Profile", destroy_user_session_path, class: "dropdown-item" %></a>
-              <a ><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></a>
+            <a ><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></a>
             <% elsif mpanera_signed_in? %>
-              <a ><%= link_to "Se déconnecter", destroy_mpanera_session_path, class: "dropdown-item", method: :delete %></a>
+            <a ><%= link_to "Se déconnecter", destroy_mpanera_session_path, class: "dropdown-item", method: :delete %></a>
             <% else %>
-
             <h6 class="dropdown-header">S'enregistrer en tant que</h6>
-
             <a ><%= link_to "Etudiant", new_user_registration_path, class: "dropdown-item" %></a>
             <a ><%= link_to "Mpanera", new_mpanera_registration_path, class: "dropdown-item" %></a>
             <div class="dropdown-divider"></div>
-            <a ><%= link_to "Se Connecter", new_user_session_path, class: "dropdown-item" %></a>
-
-
+            <h6 class="dropdown-header">Se connecter en tant que:</h6>
+            <a ><%= link_to "Etudiant", new_user_session_path, class: "dropdown-item" %></a>
+            <a ><%= link_to "Mpanera", new_mpanera_session_path, class: "dropdown-item" %></a>
             <% end %>
           </div>
         </li>

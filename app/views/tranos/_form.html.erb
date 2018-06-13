@@ -1,17 +1,17 @@
-<%= form_with(model: trano, local: true) do |form| %>
-  <% if trano.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(trano.errors.count, "error") %> prohibited this trano from being saved:</h2>
 
-      <ul>
-      <% trano.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for( @trano, :html => { :multipart => true }) do |f| %>
+
+
+<%= f.fields_for :trano do |p| %>
+<div class="field">
+ <%= p.label :url %><br>
+ <%= p.file_field :url, :multiple => true, name:     "photos[url][]" %>
+</div>
+<% end %>
+
+<input type="hidden" name="mpanera_id" value="<%= current_mpanera.id %>">
+<div class="actions">
+ <%= f.submit %>
+</div>
 <% end %>

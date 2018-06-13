@@ -10,11 +10,13 @@ class TranosController < ApplicationController
   # GET /tranos/1
   # GET /tranos/1.json
   def show
+    @photos = @trano.photos.all
   end
 
   # GET /tranos/new
   def new
     @trano = Trano.new
+    @photo = @trano.photos.build
   end
 
   # GET /tranos/1/edit
@@ -25,9 +27,13 @@ class TranosController < ApplicationController
   # POST /tranos.json
   def create
     @trano = Trano.new(trano_params)
+    @trano.mpanera_id = params[:mpanera_id]
 
     respond_to do |format|
       if @trano.save
+        params[:photos]['url'].each do |a|
+          @photo = @trano.photos.create!(:url => a,     :trano_id => @trano.id)
+        end
         format.html { redirect_to @trano, notice: 'Trano was successfully created.' }
         format.json { render :show, status: :created, location: @trano }
       else
@@ -69,6 +75,6 @@ class TranosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trano_params
-      params.fetch(:trano, {})
+      params.require(:photos).permit(:mpanera_id, photos_attributes: [:id, :trano_id, :url])
     end
-end
+  end
