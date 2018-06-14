@@ -1,811 +1,784 @@
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg bg-primary">
-        <div class="container">
-            <div class="navbar-translate">
-                <a class="navbar-brand" href="/">E-Louer</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
 
-            <div class="collapse navbar-collapse left">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"
-                            data-original-title="Like us on Facebook">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown nav-item">
-                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">account_circle</i>
-                            <b class="caret"></b>
-                        </a>
+<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->
 
-                        <div class="dropdown-menu dropdown-menu-right">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/css/util.css">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
 
-                            <% if user_signed_in? %>
-                                <a>
-                                    <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-                                </a>
-                                <% elsif mpanera_signed_in? %>
-                                    <a>
-                                        <%= link_to "Se déconnecter", destroy_mpanera_session_path, class: "dropdown-item", method: :delete %>
-                                    </a>
-                                    <% else %>
-                                        <h6 class="dropdown-header">S'enregistrer en tant que</h6>
-                                        <a>
-                                            <%= link_to "Etudiant", new_user_registration_path, class: "dropdown-item" %>
-                                        </a>
-                                        <a>
-                                            <%= link_to "Mpanera", new_mpanera_registration_path, class: "dropdown-item" %>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <h6 class="dropdown-header">Se connecter en tant que:</h6>
-                                        <a>
-                                            <%= link_to "Etudiant", new_user_session_path, class: "dropdown-item" %>
-                                        </a>
-                                        <a>
-                                            <%= link_to "Mpanera", new_mpanera_session_path, class: "dropdown-item" %>
-                                        </a>
-                                        <% end %>
-                        </div>
-                    </li>
-                </ul>
+<body class="animsition">
 
-                <form class="form-inline ml-auto">
-                    <div class="form-group has-white">
-                        <input type="text" class="form-control" id="myInput" placeholder="Recherche">
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <nav class="navbar fixed-top navbar-expand-lg bg-primary">
+                <div class="container">
+                    <div class="navbar-translate">
+                        <a class="navbar-brand" href="/">E-Louer</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
-                        <i class="material-icons">search</i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
 
-<div class="container">
-    <section class="jumbotron text-center">
+                    <div class="collapse navbar-collapse left">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"
+                                    data-original-title="Like us on Facebook">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="material-icons">account_circle</i>
+                                    <b class="caret"></b>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+
+                                    <% if user_signed_in? %>
+                                        <a>
+                                            <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                                        </a>
+                                        <% elsif mpanera_signed_in? %>
+                                            <a>
+                                                <%= link_to "Se déconnecter", destroy_mpanera_session_path, class: "dropdown-item", method: :delete %>
+                                            </a>
+                                            <% else %>
+                                                <h6 class="dropdown-header">S'enregistrer en tant que</h6>
+                                                <a>
+                                                    <%= link_to "Etudiant", new_user_registration_path, class: "dropdown-item" %>
+                                                </a>
+                                                <a>
+                                                    <%= link_to "Mpanera", new_mpanera_registration_path, class: "dropdown-item" %>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <h6 class="dropdown-header">Se connecter en tant que:</h6>
+                                                <a>
+                                                    <%= link_to "Etudiant", new_user_session_path, class: "dropdown-item" %>
+                                                </a>
+                                                <a>
+                                                    <%= link_to "Mpanera", new_mpanera_session_path, class: "dropdown-item" %>
+                                                </a>
+                                                <% end %>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <form class="form-inline ml-auto">
+                            <div class="form-group has-white">
+                                <input type="text" class="form-control" id="myInput" placeholder="Recherche">
+                            </div>
+                            <button type="submit" class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <!-- Header Mobile -->
+            
+
+            <!-- Menu Mobile -->
+            
+    </header>
+
+
+    <!-- Content page -->
+    <section class="bgwhite p-t-55 p-b-65">
         <div class="container">
-            <h1 class="jumbotron-heading">E-Louer || Category || Recherche</h1>
-            <p class="lead text-muted mb-0">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte...</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+                    <div class="leftbar p-r-20 p-r-0-sm">
+                        <!--  -->
+                        <h4 class="m-text14 p-b-7">
+                            Categories
+                        </h4>
+
+                        <ul class="p-b-54">
+                            <li class="p-t-4">
+                                <a href="#" class="s-text13 active1">
+                                    All
+                                </a>
+                            </li>
+
+                            <li class="p-t-4">
+                                <a href="#" class="s-text13">
+                                    Women
+                                </a>
+                            </li>
+
+                            <li class="p-t-4">
+                                <a href="#" class="s-text13">
+                                    Men
+                                </a>
+                            </li>
+
+                            <li class="p-t-4">
+                                <a href="#" class="s-text13">
+                                    Kids
+                                </a>
+                            </li>
+
+                            <li class="p-t-4">
+                                <a href="#" class="s-text13">
+                                    Accesories
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!--  -->
+                        <h4 class="m-text14 p-b-32">
+                            Filters
+                        </h4>
+
+                        <div class="filter-price p-t-22 p-b-50 bo3">
+                            <div class="m-text15 p-b-17">
+                                Price
+                            </div>
+
+                            <div class="wra-filter-bar">
+                                <div id="filter-bar"></div>
+                            </div>
+
+                            <div class="flex-sb-m flex-w p-t-16">
+                                <div class="w-size11">
+                                    <!-- Button -->
+                                    <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+                                        Filter
+                                    </button>
+                                </div>
+
+                                <div class="s-text3 p-t-10 p-b-10">
+                                    Range: $
+                                    <span id="value-lower">610</span> - $
+                                    <span id="value-upper">980</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-product pos-relative bo4 of-hidden" id="myInput">
+                            <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
+
+                            <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+                                <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+                    <!--  -->
+                    <div class="flex-sb-m flex-w p-b-35">
+                        <div class="flex-w">
+                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                                <select class="selection-2" name="sorting">
+                                    <option>Default Sorting</option>
+                                    <option>Popularity</option>
+                                    <option>Price: low to high</option>
+                                    <option>Price: high to low</option>
+                                </select>
+                            </div>
+
+                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                                <select class="selection-2" name="sorting">
+                                    <option>Price</option>
+                                    <option>$0.00 - $50.00</option>
+                                    <option>$50.00 - $100.00</option>
+                                    <option>$100.00 - $150.00</option>
+                                    <option>$150.00 - $200.00</option>
+                                    <option>$200.00+</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <span class="s-text8 p-t-5 p-b-5">
+                            Showing 1–12 of 16 results
+                        </span>
+                    </div>
+
+                    <!-- Product -->
+                    <div class="row" id="myList">
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                    <img src="/images/item-02.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Mahamasina
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $75.00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-03.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Denim jacket blue
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $92.50
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-05.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Coach slim easton black
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $165.90
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
+                                    <img src="/images/item-07.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Frayed denim shorts
+                                    </a>
+
+                                    <span class="block2-oldprice m-text7 p-r-5">
+                                        $29.50
+                                    </span>
+
+                                    <span class="block2-newprice m-text8 p-r-5">
+                                        $15.90
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                    <img src="/images/item-01.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Herschel supply co 25l
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $75.00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-14.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Denim jacket blue
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $92.50
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                    <img src="/images/item-06.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Herschel supply co 25l
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $75.00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-08.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Denim jacket blue
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $92.50
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-10.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Coach slim easton black
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $165.90
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
+                                    <img src="/images/item-11.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Frayed denim shorts
+                                    </a>
+
+                                    <span class="block2-oldprice m-text7 p-r-5">
+                                        $29.50
+                                    </span>
+
+                                    <span class="block2-newprice m-text8 p-r-5">
+                                        $15.90
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                    <img src="/images/item-12.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Herschel supply co 25l
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $75.00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="/images/item-15.jpg" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                        Denim jacket blue
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+                                        $92.50
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination flex-m flex-w p-t-26">
+                        <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+                        <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-</div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="category.html">Category</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Sub-category</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    
 
 
 
 
-    <div class="row">
-
-        <div class="col-md-12 .col-6">
-            <nav aria-label="">
-
-                <ul class="pagination ">
-                    <li class="page-item">
-                        <button type="button" class="btn btn-success btn-sm">Dates</button>
-                    </li>
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2
-                            <span class="sr-only">(current)</span>
+    <footer class="footer footer-default">
+        <div class="container">
+            <nav class="float-left">
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            About
                         </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
+
+                    <li>
+                        <a href="https://blog.creative-tim.com">
+                            Contact
+                        </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                    <li class="page-item">
-                        <button type="button" class="btn btn-warning btn-sm">Filtres</button>
-                    </li>
-                    <li class="page-item">
-                        <button type="button" class="btn btn-info btn-sm">Prix</button>
-                    </li>
-                    <li class="page-item">
-                        <button type="button" class="btn btn-default btn-sm">Types delogement</button>
-                    </li>
-                    <li class="page-item">
-                        <button type="button" class="btn btn-danger btn-sm">Plus de filtres</button>
+                    <li>
+                        <a href="https://www.creative-tim.com/license">
+                            Licenses
+                        </a>
                     </li>
                 </ul>
             </nav>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-3">
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
-                    <ul class="list-group category_block">
-                        <li class="list-group-item"><a href="category.html">Cras justo odio</a></li>
-                        <li class="list-group-item"><a href="category.html">Dapibus ac facilisis in</a></li>
-                        <li class="list-group-item"><a href="category.html">Morbi leo risus</a></li>
-                        <li class="list-group-item"><a href="category.html">Porta ac consectetur ac</a></li>
-                        <li class="list-group-item"><a href="category.html">Vestibulum at eros</a></li>
-                    </ul>
-                </div>
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Last product</div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
-                        <h5 class="card-title">Product title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="bloc_left_price">99.00 $</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="btn btn-danger btn-block">99.00 $</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-    
-        </div>
-    </div>
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-
-                <div class="team">
-
-                    <div class="row" id="myList">
-
-                        <div class="col-md-4 .col-6">
-                            <div class="card text-center">
-                                <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Mahamasina</h4>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 .col-6">
-                            <div class="card text-center">
-                                <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Isotry</h4>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 .col-6">
-                            <div class="card text-center">
-                                <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Ivandry</h4>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="team">
-        <div class="row">
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-6   .col-6">
-                <div class="col-md-12">
-                    <h3 class="card-title">Des logements pour adaptés pour tous les étudiants</h3>
-                    <h5 class="card-text">Trouvez des logements par rapport à vos budget</h5>
-                </div>
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="/assets/bg_ankatso_bg.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h2 class="card-title">Pour les étudiants</h2>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-6   .col-6">
-                <div class="col-md-12">
-                    <h3 class="card-title">Des logements pour adaptés pour tous les étudiants</h3>
-                    <h5 class="card-text">Trouvez des logements par rapport à vos budget</h5>
-                </div>
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="/assets/bg_ankatso_bg.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h2 class="card-title">Card title</h2>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-    </div>
-
-
-    </div>
-
-    </div>
-    </div>
-
-    <hr>
-
-    <div class="team">
-        <div class="row">
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 .col-6">
-                <div class="card text-center">
-                    <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="team">
-            <div class="row">
-
-                <div class="col-md-3 .col-6">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 .col-6">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 .col-6">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 .col-6">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../assets/logements/log.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">E-COMMERCE CATEGORY</h1>
-        <p class="lead text-muted mb-0">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte...</p>
-    </div>
-</section>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="category.html">Category</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sub-category</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-sm-3">
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
-                <ul class="list-group category_block">
-                    <li class="list-group-item"><a href="category.html">Cras justo odio</a></li>
-                    <li class="list-group-item"><a href="category.html">Dapibus ac facilisis in</a></li>
-                    <li class="list-group-item"><a href="category.html">Morbi leo risus</a></li>
-                    <li class="list-group-item"><a href="category.html">Porta ac consectetur ac</a></li>
-                    <li class="list-group-item"><a href="category.html">Vestibulum at eros</a></li>
-                </ul>
-            </div>
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-success text-white text-uppercase">Last product</div>
-                <div class="card-body">
-                    <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
-                    <h5 class="card-title">Product title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="bloc_left_price">99.00 $</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">Product title</a></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">99.00 $</p>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-            <div class="row">
-
-                <div class="col-md-12 .col-6">
-                    <nav aria-label="">
-
-                        <ul class="pagination ">
-                            <%= paginate @logs %>
-
-                                <li class="page-item">
-                                    <button type="button" class="btn btn-success btn-sm">Dates</button>
-                                </li>
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                                <li class="page-item">
-                                    <button type="button" class="btn btn-warning btn-sm">Filtres</button>
-                                </li>
-                                <li class="page-item">
-                                    <button type="button" class="btn btn-info btn-sm">Prix</button>
-                                </li>
-                                <li class="page-item">
-                                    <button type="button" class="btn btn-default btn-sm">Types delogement</button>
-                                </li>
-                                <li class="page-item">
-                                    <button type="button" class="btn btn-danger btn-sm">Plus de filtres</button>
-                                </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-
-            <footer class="footer footer-default">
-                <div class="container">
-                    <nav class="float-left">
-                        <ul>
-                            <li>
-                                <a href="https://www.creative-tim.com">
-                                    About
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://blog.creative-tim.com">
-                                    Contact
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.creative-tim.com/license">
-                                    Licenses
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright float-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>, made with
-                        <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com" target="_blank">E-Louer</a> Team.
-                    </div>
-                </div>
-
+            <div class="copyright float-right">
+                &copy;
                 <script>
+                    document.write(new Date().getFullYear())
+                </script>, made with
+                <i class="material-icons">favorite</i> by
+                <a href="https://www.creative-tim.com" target="_blank">E-Louer</a> Team.
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                //init DateTimePickers
+                materialKit.initFormExtendedDatetimepickers();
 
-                    $(document).ready(function () {
-                        $("#myInput").on("keyup", function () {
-                            var value = $(this).val().toLowerCase();
-                            $("#myList div").filter(function () {
-                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                            });
-                        });
-                    });
+                // Sliders Init
+                materialKit.initSliders();
+            });
 
-                </script>
 
-            </footer>
+            function scrollToDownload() {
+                if ($('.section-download').length != 0) {
+                    $("html, body").animate({
+                        scrollTop: $('.section-download').offset().top
+                    }, 1000);
+                }
+            }
+        </script>
+
+    </footer>
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
+
+
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect2')
+        });
+    </script>
+    <script type="text/javascript" src="/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/vendor/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.block2-btn-addcart').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+
+        $('.block2-btn-addwishlist').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+            });
+        });
+    </script>
+
+    <!--===============================================================================================-->
+   
+    <script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+        var filterBar = document.getElementById('filter-bar');
+
+        noUiSlider.create(filterBar, {
+            start: [50, 200],
+            connect: true,
+            range: {
+                'min': 50,
+                'max': 200
+            }
+        });
+
+        var skipValues = [
+            document.getElementById('value-lower'),
+            document.getElementById('value-upper')
+        ];
+
+        filterBar.noUiSlider.on('update', function (values, handle) {
+            skipValues[handle].innerHTML = Math.round(values[handle]);
+        });
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myList div").filter(function () 
+            {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+</script>
+    <!--===============================================================================================-->
+    <script src="/js/main.js"></script>
+
 </body>
+
+</html>

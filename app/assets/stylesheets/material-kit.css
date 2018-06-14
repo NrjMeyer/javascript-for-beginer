@@ -10950,7 +10950,7 @@ a .material-icons {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #ffffff;
   font-weight: 400;
 }
 
@@ -11916,19 +11916,19 @@ form {
 }
 
 .form-control::-moz-placeholder {
-  color: #AAAAAA;
+  color: #ffffff;
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #AAAAAA;
+  color: #ffffff;
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: #ffffff;
   font-weight: 400;
   font-size: 14px;
 }
@@ -12118,7 +12118,7 @@ fieldset[disabled][disabled] .form-control,
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: #999999;
+  color: #ffffff;
 }
 
 .is-focused .valid-tooltip {
@@ -13265,7 +13265,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 
 .bmd-form-group:not(.has-success):not(.has-danger) [class^='bmd-label'].bmd-label-floating,
 .bmd-form-group:not(.has-success):not(.has-danger) [class*=' bmd-label'].bmd-label-floating {
-  color: #AAAAAA;
+  color: #ffffff;
 }
 
 .bmd-form-group [class^='bmd-label'],
@@ -13321,7 +13321,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group label {
-  color: #AAAAAA;
+  color: #ffffff;
 }
 
 .bmd-form-group .radio label,
@@ -13397,7 +13397,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-sm label {
-  color: #AAAAAA;
+  color: #ffffff;
 }
 
 .bmd-form-group.bmd-form-group-sm .radio label,
@@ -13473,7 +13473,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-lg label {
-  color: #AAAAAA;
+  color: #ffffff;
 }
 
 .bmd-form-group.bmd-form-group-lg .radio label,
@@ -13549,7 +13549,7 @@ input::placeholder {
 }
 
 label {
-  color: #AAAAAA;
+  color: #ffffff;
 }
 
 .radio label,

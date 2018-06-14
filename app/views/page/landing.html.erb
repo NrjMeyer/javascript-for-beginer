@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <body class="landing-page sidebar-collapse">
   
-  <nav class="navbar fixed-top navbar-expand-lg bg-primary" color-on-scroll="100" id="sectionsNav">
+  <nav class="navbar fixed-top navbar-expand-lg bg-primary navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+        <a class="navbar-brand" href="/">
         E-Louer </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -80,8 +78,34 @@
     </div>
   </div>
 </nav>
+<% if user_signed_in? %>
+<div class="container">
+<div class="alert alert-success">
+  
+    <div class="alert-icon">
+      <i class="material-icons">check</i>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>Success Alert:</b> Yuhuuu! Tu peux maintenant louer la maison de tes rève :)
+  </div>
+</div>
+<% else %>
+<div class="alert alert-warning">
+  <div class="container">
+    <div class="alert-icon">
+      <i class="material-icons">warning</i>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>Warning Alert:</b> Hey, Vous devez etre membre pour beneficiez des offres de ce site!
+  </div>
+</div>
+<% end %>
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('/assets/bg_ankatso_bg.jpg')">
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/assets/bg_ankatso.jpg')">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -395,7 +419,24 @@
           </div>
         </div>
       </footer>
-
+      <script>
+        $(document).ready(function() {
+          //init DateTimePickers
+          materialKit.initFormExtendedDatetimepickers();
+    
+          // Sliders Init
+          materialKit.initSliders();
+        });
+    
+    
+        function scrollToDownload() {
+          if ($('.section-download').length != 0) {
+            $("html, body").animate({
+              scrollTop: $('.section-download').offset().top
+            }, 1000);
+          }
+        }
+      </script>
 
     </body>
 
